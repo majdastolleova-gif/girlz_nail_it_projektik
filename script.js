@@ -17,11 +17,11 @@ function getRandomSuggestion() {
 }
 
 function createRainingCats() {
-  const rainPhoto = 'https://placekitten.com/80/80';
+  const rainPhoto = 'ChatGPT Image 22. 6. 2026 11_26_17.png';
 
   let rainCount = 0;
   const rainInterval = setInterval(() => {
-    if (rainCount >= 15) {
+    if (rainCount >= 18) {
       clearInterval(rainInterval);
       return;
     }
@@ -29,14 +29,18 @@ function createRainingCats() {
     const cat = document.createElement('img');
     cat.className = 'rain-cat';
     cat.src = `${rainPhoto}?t=${Date.now()}`;
-    cat.alt = 'Cat photo head';
+    cat.alt = 'Kočičí obrázek';
     cat.style.left = Math.random() * 100 + '%';
-    cat.style.animationDuration = (2.5 + Math.random() * 1.5) + 's';
+    const duration = 2.8 + Math.random() * 1.8;
+    cat.style.animationDuration = duration + 's';
+    const size = 28 + Math.floor(Math.random() * 56);
+    cat.style.width = size + 'px';
+    cat.style.height = size + 'px';
     document.body.appendChild(cat);
 
-    setTimeout(() => cat.remove(), 4500);
+    setTimeout(() => cat.remove(), Math.ceil(duration * 1000) + 500);
     rainCount++;
-  }, 150);
+  }, 120);
 }
 
 button.addEventListener('click', () => {
