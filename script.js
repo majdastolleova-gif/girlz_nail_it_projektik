@@ -19,16 +19,11 @@ function getRandomSuggestion() {
 function createRainingCats() {
   const rainPhoto = 'ChatGPT Image 22. 6. 2026 11_26_17.png';
 
-  let rainCount = 0;
-  const rainInterval = setInterval(() => {
-    if (rainCount >= 18) {
-      clearInterval(rainInterval);
-      return;
-    }
-
+  const total = 24; // počet obrázků najednou
+  for (let i = 0; i < total; i++) {
     const cat = document.createElement('img');
     cat.className = 'rain-cat';
-    cat.src = `${rainPhoto}?t=${Date.now()}`;
+    cat.src = `${rainPhoto}?t=${Date.now()}_${i}`;
     cat.alt = 'Kočičí obrázek';
     cat.style.left = Math.random() * 100 + '%';
     const duration = 2.8 + Math.random() * 1.8;
@@ -37,10 +32,8 @@ function createRainingCats() {
     cat.style.width = size + 'px';
     cat.style.height = size + 'px';
     document.body.appendChild(cat);
-
     setTimeout(() => cat.remove(), Math.ceil(duration * 1000) + 500);
-    rainCount++;
-  }, 120);
+  }
 }
 
 button.addEventListener('click', () => {
