@@ -1,0 +1,138 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: radial-gradient(circle at top, #e7d6ff 0%, #d0c0ff 35%, #afa0ff 100%);
+  color: #2e183d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  width: min(96vw, 540px);
+  padding: 16px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 28px;
+  box-shadow: 0 24px 60px rgba(64, 40, 126, 0.18);
+  padding: 24px;
+  text-align: center;
+  border: 1px solid rgba(143, 89, 255, 0.12);
+  max-height: calc(100vh - 32px);
+  overflow: hidden;
+}
+
+h1 {
+  margin: 0 0 16px;
+  font-size: clamp(2rem, 4vw, 3rem);
+  letter-spacing: 0.08em;
+}
+
+.subtitle {
+  margin: 0 0 20px;
+  font-size: 1rem;
+  color: #5b4a7f;
+}
+
+.fortune-box {
+  position: relative;
+  overflow: hidden;
+  border-radius: 24px;
+  margin-bottom: 18px;
+  height: 220px;
+  background: #000;
+}
+
+.fortune-box img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  opacity: 0.98;
+}
+
+
+button {
+  appearance: none;
+  border: none;
+  border-radius: 999px;
+  padding: 16px 32px;
+  font-size: 1rem;
+  background: linear-gradient(135deg, #8f6eff, #5a3bff);
+  color: white;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s ease;
+  box-shadow: 0 16px 30px rgba(79, 47, 230, 0.24);
+}
+
+button:hover,
+button:focus-visible {
+  transform: translateY(-2px);
+  outline: none;
+  box-shadow: 0 20px 30px rgba(79, 47, 230, 0.3);
+}
+
+.result {
+  margin-top: 18px;
+  padding: 18px 18px;
+  border-radius: 20px;
+  background: #faf4ff;
+  border: 1px solid rgba(142, 108, 255, 0.25);
+  color: #40305d;
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
+
+.result strong {
+  display: block;
+  margin-bottom: 12px;
+  font-size: 1.1rem;
+}
+
+.hidden {
+  display: none;
+}
+
+.rain-cat {
+  position: fixed;
+  top: -50px;
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 999px;
+  opacity: 0.95;
+  pointer-events: none;
+  animation: fall linear forwards;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(100vh);
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: 24px 18px;
+  }
+
+  button {
+    width: 100%;
+  }
+}
